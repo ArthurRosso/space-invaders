@@ -5,14 +5,45 @@
 #include <windows.h>
 
 /* Fontes úteis:
-    conio.h: http://conio.sourceforge.net/docs/html/conio2_8h.html#a4fba076b219f45fb4e28c15f86678ec3
-    beep:    https://www.clubedohardware.com.br/topic/1049844-beep-c/
-    menu:    https://www.hardware.com.br/comunidade/menu-include/1462343/
-    cores:    https://www.youtube.com/watch?v=wl5lhEMM3Wg
-    cores:    https://www.youtube.com/watch?v=fQk9Oazo0Rw
+    conio.h:  http://conio.sourceforge.net/docs/html/conio2_8h.html
+    beep:     https://www.clubedohardware.com.br/topic/1049844-beep-c/
+    menu:     https://www.hardware.com.br/comunidade/menu-include/1462343/
+    cores:     https://www.youtube.com/watch?v=wl5lhEMM3Wg
+    cores:     https://www.youtube.com/watch?v=fQk9Oazo0Rw
+    inimigos: https://www.youtube.com/watch?v=mXy2UuhMHwQ
+
 */
 
 void jogar() {
+    clrscr ();
+
+    cputsxy(30, 14,"Estes são os inimigos: ");
+
+    // Inimigo 4:
+    textcolor(RED);
+    cputsxy(50, 16,"___/MW\\___");
+    cputsxy(50, 17,"qMARCELOWp");
+    textcolor(WHITE);
+    cputsxy(61, 16,"= ? pts");
+
+    // Inimigo 3:
+    cputsxy(53, 19,"{@@}");
+    cputsxy(53, 20,"/\"\"\\");
+    cputsxy(58, 19,"= 30 pts");
+
+    // Inimigo 1:
+    cputsxy(53, 22,"d00b");
+    cputsxy(53, 23,"^/\\^");
+    cputsxy(58, 22,"= 20 pts");
+
+    // Inimigo 0:
+    cputsxy(53, 25,"/MM\\");
+    cputsxy(53, 26,"|~~|");
+    cputsxy(58, 25,"= 10 pts");
+
+    do {
+
+    } while(1);
 }
 
 void ranking() {
@@ -40,53 +71,53 @@ int menu() {
     textcolor(WHITE);
 
 
-        Beep(750, 100);
+    Beep(750, 100);
     do {
-        if(selecionado==0){
-        textbackground(WHITE);
-        textcolor(BLACK);
-        cputsxy(45, 17, "Jogar");
-        textbackground(BLACK);
-        textcolor(WHITE);
+        if(selecionado==0) {
+            textbackground(WHITE);
+            textcolor(BLACK);
+            cputsxy(45, 17, "Jogar");
+            textbackground(BLACK);
+            textcolor(WHITE);
         } else {
-        cputsxy(45, 17, "Jogar");
+            cputsxy(45, 17, "Jogar");
         }
 
-        if(selecionado==1){
-        textbackground(WHITE);
-        textcolor(BLACK);
-        cputsxy(45, 18, "Ranking");
-        textbackground(BLACK);
-        textcolor(WHITE);
+        if(selecionado==1) {
+            textbackground(WHITE);
+            textcolor(BLACK);
+            cputsxy(45, 18, "Ranking");
+            textbackground(BLACK);
+            textcolor(WHITE);
         } else {
-        cputsxy(45, 18, "Ranking");
+            cputsxy(45, 18, "Ranking");
         }
 
-        if(selecionado==2){
-        textbackground(WHITE);
-        textcolor(BLACK);
-        cputsxy(45, 19, "Créditos");
-        textbackground(BLACK);
-        textcolor(WHITE);
-        } else{
-        cputsxy(45, 19, "Créditos");
+        if(selecionado==2) {
+            textbackground(WHITE);
+            textcolor(BLACK);
+            cputsxy(45, 19, "Créditos");
+            textbackground(BLACK);
+            textcolor(WHITE);
+        } else {
+            cputsxy(45, 19, "Créditos");
         }
 
-        if(selecionado==3){
-        textbackground(WHITE);
-        textcolor(BLACK);
-        cputsxy(45, 20, "Sair");
-        textbackground(BLACK);
-        textcolor(WHITE);
+        if(selecionado==3) {
+            textbackground(WHITE);
+            textcolor(BLACK);
+            cputsxy(45, 20, "Sair");
+            textbackground(BLACK);
+            textcolor(WHITE);
         } else {
-        cputsxy(45, 20, "Sair");
+            cputsxy(45, 20, "Sair");
         }
 
         op = getch();
-        if(op==72 && selecionado > 0){
+        if(op==72 && selecionado > 0) {
             Beep(750, 100);
             selecionado--;
-        } else if (op == 80 && selecionado < 3){
+        } else if (op == 80 && selecionado < 3) {
             Beep(750, 100);
             selecionado++;
         }
@@ -103,16 +134,16 @@ int main() {
     op = menu();
 
     switch(op) {
-    case 1:
+    case 0:
         jogar();
         break;
-    case 2:
+    case 1:
         ranking();
         break;
-    case 3:
+    case 2:
         creditos();
         break;
-    case 4:
+    case 3:
         sair();
         break;
     }
